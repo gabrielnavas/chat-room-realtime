@@ -33,10 +33,10 @@ export const Chat = () => {
       console.log('esse socket foi desconectado');
     }
     socket?.emit('send-message', { message })
+    inputRef.current.value = ''
   }
 
   React.useEffect(() => {
-    // Configura os eventos no socket
     socket?.on(roomSocketNames.connect, () => {
       console.log('abriu a conexão');
       socket?.emit('join', {
