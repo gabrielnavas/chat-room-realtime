@@ -8,7 +8,10 @@ import { Room } from './entities/room.entity';
 import { UserController } from './controllers/user/user.controller';
 import { InitUsers } from './init-data/init-users';
 import { InitRooms } from './init-data/init-rooms';
-import { JoinRoom } from './websocket/join-room.service';
+import { JoinRoomService } from './websocket/join-room.service';
+import { SendMessageService } from './websocket/send-message.service';
+import { DisconnectService } from './websocket/disconnect.service';
+import { ConnectionService } from './websocket/connection.service';
 
 @Module({
   imports: [
@@ -27,6 +30,14 @@ import { JoinRoom } from './websocket/join-room.service';
     TypeOrmModule.forFeature([User, Room]),
   ],
   controllers: [RoomController, UserController],
-  providers: [WebsocketService, InitUsers, InitRooms, JoinRoom],
+  providers: [
+    WebsocketService,
+    InitUsers,
+    InitRooms,
+    JoinRoomService,
+    SendMessageService,
+    DisconnectService,
+    ConnectionService,
+  ],
 })
 export class AppModule {}

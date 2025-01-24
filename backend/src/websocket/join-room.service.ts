@@ -6,7 +6,7 @@ import { User as UserEntity } from 'src/entities/user.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
-export class JoinRoom {
+export class JoinRoomService {
   constructor(
     @InjectRepository(UserEntity)
     private userRepository: Repository<UserEntity>,
